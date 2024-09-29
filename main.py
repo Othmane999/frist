@@ -14,6 +14,8 @@ def divide(a, b):
     if b == 0:
         return "Division par zéro!"
     return a / b
+def pow(a):
+    return a**2
 
 # Interface utilisateur avec Streamlit
 st.title("Calculatrice Simple avec Streamlit")
@@ -23,7 +25,7 @@ num1 = st.number_input("Entrez le premier nombre", value=0.0)
 num2 = st.number_input("Entrez le second nombre", value=0.0)
 
 # Choix de l'opération
-operation = st.selectbox("Choisissez une opération", ["Addition", "Soustraction", "Multiplication", "Division"])
+operation = st.selectbox("Choisissez une opération", ["Addition", "Soustraction", "Multiplication", "Division","pow"])
 
 # Calcul et affichage du résultat
 if st.button("Calculer"):
@@ -35,6 +37,8 @@ if st.button("Calculer"):
         result = multiply(num1, num2)
     elif operation == "Division":
         result = divide(num1, num2)
+    elif operation == "pow":
+        result = pow(num1)
     
     st.success(f"Le résultat est : {result}")
 
